@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "User Information";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<section class="py-4 my-4">
+    <div class="container">
+        <h3 class="mb-5">Thông tin khách hàng</h3>
+        <div class="bg-white shadow rounded-lg d-block d-sm-flex">
+            <div class="profile-tab-nav border-right">
+                <div class="p-4">
+                    <div class="img-circle text-center mb-3">
+
+                        <img src="~/Content/images/avatar.jpg" alt="Image" class="shadow" style="height: 100px; width: 100px; border-radius: 100%; border: 5px solid #fff;" />
+                    </div>
+                    
+                </div>
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
+                        <i class="fa fa-home text-center mr-1"></i>
+                        Tài khoản
+                    </a>
+                    <a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
+                        <i class="fa fa-key text-center mr-1"></i>
+                        Mật khẩu
+                    </a>
+                    @*<a class="nav-link" id="donhang-tab" data-toggle="pill" href="#donhang" role="tab" aria-controls="donahng" aria-selected="false">
+            <i class="fa fa-cart-plus text-center mr-1"></i>
+            Đơn Hàng Của Bạn
+        </a>*@
+                    <a class="nav-link" href="/User/CheckoutOrder" aria-selected="false">
+                        <i class="fa fa-cart-plus text-center mr-1"></i>
+                        Đơn Hàng Của Bạn
+                    </a>
+
+                </div>
+            </div>
+
+            @RenderBody()
+        </div>
+</section>
+
+<script>
+    function check(input) {
+        if (input.value != document.getElementById('Password').value) {
+            input.setCustomValidity('Password does not match');
+        } else {
+            input.setCustomValidity('');
+        }
+    }
+</script>

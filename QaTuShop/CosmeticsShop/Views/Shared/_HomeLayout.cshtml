@@ -1,0 +1,464 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    @*<meta name="description" content="Yoga Studio Template">*@
+    <meta name="description" content="Molla - Bootstrap eCommerce Template">
+    @*<meta name="keywords" content="Yoga, unica, creative, html">*@
+    <meta name="keywords" content="HTML5 Template">
+    @*<meta name="viewport" content="width=device-width, initial-scale=1.0">*@
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="p-themes">
+    <title>@ViewBag.Title</title>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Content/js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <!--//theme-style-->
+    <script type="application/x-javascript">
+            addEventListener("load",
+            function()
+            { setTimeout(hideURLbar, 0); },
+            false);
+            function hideURLbar()
+            { window.scrollTo(0,1);
+        }
+    </script>
+
+
+    <!-- Favicon (template 2) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="~/Content/assets/images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/Content/assets/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Content/assets/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="~/Content/assets/images/icons/site.html">
+    <link rel="mask-icon" href="~/Content/assets/images/icons/safari-pinned-tab.svg" color="#666666">
+    <link rel="shortcut icon" href="~/Content/assets/images/icons/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Molla">
+    <meta name="application-name" content="Molla">
+    <meta name="msapplication-TileColor" content="#cc9966">
+    <meta name="msapplication-config" content="~/Content/assets/images/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Plugins CSS File (template 2)-->
+    <link rel="stylesheet" href="~/Content/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/assets/css/plugins/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="~/Content/assets/css/plugins/magnific-popup/magnific-popup.css">
+    <!-- Main CSS File (template 2) -->
+    <link rel="stylesheet" href="~/Content/assets/css/style.css">
+
+
+
+    <!-- start menu -->
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <!-- slide -->
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
+          rel="stylesheet">
+    <!-- Css Styles -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Return Url -->
+
+    <link rel="stylesheet" href="~/Content/Webapp/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/Webapp/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/Webapp/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/Webapp/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/Webapp/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/Webapp/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/Webapp/css/style.css" type="text/css">
+</head>
+<body>
+    <!--header-->
+    <!-- Search model -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form action="/Product/Index" method="get" class="search-model-form">
+                <input type="text" name="keyword" value="Nhập vào từ khóa..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+                <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+            </form>
+        </div>
+    </div>
+    <!-- Search model end -->
+    <!-- Header Section Begin -->
+
+
+
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-left">
+                    <div class="header-dropdown">
+                        <a href="#" class="icon-phone">Số Điện Thoại Liên Hệ</a>
+                        <div class="header-menu">
+                            <ul>
+                                <li><a href="#">0123456789</a></li>
+                                <li><a href="#">0123567797</a></li>
+                            </ul>
+                        </div><!-- End .header-menu -->
+                    </div><!-- End .header-dropdown -->
+
+
+                </div><!-- End .header-left -->
+                @*@{
+                        CosmeticsShop.Models.User userInfo = Session["User"] as CosmeticsShop.Models.User;
+
+                        if (userInfo != null)
+                        {
+                            <a href="/User/Infor">
+                                <img src="~/Content/Webapp/img/icons/man.png" alt="">
+                            </a>
+                        }
+                        else
+                        {
+
+                        }
+                    }*@
+
+                <div class="header-right">
+                    <ul class="top-menu">
+                        <li>
+                            <a href="#">Links</a>
+                            <ul>
+
+
+                                <li><a href="/Home/Contact">Liên Hệ </a></li>
+                                <li>
+                                    @{
+                                        CosmeticsShop.Models.User user = Session["User"] as CosmeticsShop.Models.User;
+
+                                        if (user != null)
+                                        {
+                                            <input type="text" id="UserID" value="@user.ID" hidden />
+
+                                            string[] token = user.Name.Split(' ');
+                                            string name = token[token.Length - 1];
+                                        <li><a href="/User/Infor"> <i class="icon-user"></i>@name </a></li>
+
+                                        <li><a href="/Home/SignOut" class="in">Đăng xuất </a></li>
+
+
+                                    }
+                                    else
+                                    {
+
+                                        <a href="/Home/Register">Đăng ký</a>
+
+                                        <li>
+                                            <a href="/Home/SignIn" class="in"> Đăng nhập </a>
+                                        </li>
+                                    }
+                                    }
+                            </li>
+                        </ul>
+                        </li>
+
+                        </ul>
+                        <!-- End .top-menu -->
+                    </div><!-- End .header-right -->
+                </div><!-- End .container -->
+            </div><!-- End .header-top -->
+
+
+            <div class="header-middle sticky-header">
+                <div class="container">
+                    <div class="header-left">
+                        <button class="mobile-menu-toggler">
+                            <span class="sr-only">Toggle mobile menu</span>
+                            <i class="icon-bars"></i>
+                        </button>
+
+                        <a href="index.html" class="logo">
+                            <img src="~/Content/assets/images/Quantung-removebg-preview.png" alt="QaTu Logo" width="200" height="15">
+                        </a>
+
+                        <nav class="main-nav">
+                            <ul class="menu sf-arrows">
+                                <li class="">
+                                    <a href="/" class="">Trang Chủ</a>
+
+                                    <!-- End .megamenu -->
+                                </li>
+                                <li>
+                                    <a href="/Product/" class="">Sản Phẩm</a>
+                                </li>
+                                <li>
+                                    <a href="/Home/Quiz" class="">Gợi Ý Sản Phẩm</a>
+                                </li>
+                                <li>
+                                    <a href="/Slide/" class="">Diễn Đàng</a>
+                                </li>
+
+
+
+                            </ul><!-- End .menu -->
+                        </nav><!-- End .main-nav -->
+                    </div><!-- End .header-left -->
+
+                    <div class="header-right">
+                        <div class="header-search">
+                            @*<a href="#" class="search-toggle" role="button" title="Search"><i class="icon-search"></i></a>*@
+                            <form action="/Product/Index" method="get">
+                                <div class="header-search-wrapper.show">
+                                    <label for="q" class="sr-only">Search</label>
+                                    <input type="search" class="form-control" name="keyword" placeholder="Tìm Kiếm..." required onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+
+                                </div><!-- End .header-search-wrapper -->
+                            </form>
+                        </div><!-- End .header-search -->
+
+                        <div class="dropdown cart-dropdown">
+                            <a href="/Cart/Checkout" class="dropdown-toggle">
+                                <i class="icon-shopping-cart" href="/Cart/Checkout"></i>
+                                <div class="total">
+                                    @{
+                                        List<CosmeticsShop.Models.ItemCart> itemCarts = Session["Cart"] as List<CosmeticsShop.Models.ItemCart>;
+                                        if (itemCarts != null && itemCarts.Count > 0)
+                                        {
+                                            <span class="cart-count simpleCart_total">@itemCarts.Sum(x => x.ProductPrice * x.Quantity).ToString("#,##")₫ (@itemCarts.Sum(x => x.Quantity))</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="cart-count simpleCart_total">0₫ (0)</span>
+                                        }
+                                    }
+                                </div>
+                            </a>
+
+                            <!-- End .dropdown-menu -->
+                        </div><!-- End .cart-dropdown -->
+                    </div><!-- End .header-right -->
+                </div><!-- End .container -->
+            </div><!-- End .header-middle -->
+        </header><!-- End .header -->
+
+
+        @RenderBody()
+
+
+        <div class="row1">
+            <div class="chatbox chatbox22 chatbox--tray">
+                <div class="chatbox__title">
+                    <h5><a href="javascript:void()">Chat với chúng tôi</a></h5>
+        <button class="chatbox__title__tray">
+            <span></span>
+        </button>
+        <button class="chatbox__title__close">
+                        <span>
+                            <svg viewBox="0 0 12 12" width="12px" height="12px">
+                                <line stroke="#FFFFFF" x1="11.75" y1="0.25" x2="0.25" y2="11.75"></line>
+                                <line stroke="#FFFFFF" x1="11.75" y1="11.75" x2="0.25" y2="0.25"></line>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+                @if (Session["User"] == null)
+                {
+                    <div class="chatbox__body">
+                        <h5>Vui lòng đăng nhập để chat</h5>
+                    </div>
+                }
+                else
+                {
+                    <div class="chatbox__body">
+
+                    </div>
+                    <div class="panel-footer">
+                        <form id="form-chat">
+                            <div class="input-group">
+                                <input id="btn-input" type="text" required class="form-control input-sm chat_set_height" placeholder="Soạn tin nhắn..." tabindex="0" dir="ltr" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" contenteditable="true" />
+                                <span style="background-color:cornflowerblue" class="input-group-btn d-flex align-items-center justify-content-center">
+                                    <button type="submit" class="btn bt_bg btn-sm" id="btn-chat">
+                                        Gửi
+                                    </button>
+                                    <img src="~/Content/images/loading.gif" class="loading-send btn bt_bg btn-sm" style="display:none;" />
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                }
+            </div>
+        </div>
+        <!--footer-->
+        <!-- Footer Section Begin -->
+        @*<footer class="footer-section">
+                <div class="social-links-warp">
+                    <div class="container">
+                        <div class="social-links" style="text-align:center; ">
+                            <a href="" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
+                            <a href="" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
+                            <a href="" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
+                            <a href="" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a>
+                        </div>
+                    </div>
+
+                    <div class="container text-center pt-5">
+                        <p>
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script><i class="icon-heart color-danger" aria-hidden="true"></i><a href="" target="_blank"> Nguyễn Chí Tùng</a>
+                        </p>
+                    </div>
+                </div>
+            </footer>*@
+
+
+        <footer class="footer footer-dark">
+            <div class="footer-middle">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="widget widget-about">
+                                <img src="~/Content/assets/images/qatuvang-removebg-preview.png" class="footer-logo" alt="Footer Logo" width="105" height="25">
+                                <p> Là hệ thống mỹ phẩm và uy tín có quy mô lớn số 1 Việt Nam,các loại mỹ phẩm đến từ các hãng nổi tiếng trên toàn thế giới... Với phương châm luôn nỗ lực vì khách hàng thân yêu, QATU không ngừng cố gắng để xứng đáng là địa điểm mua sắm tin cậy trong lòng các bạn trẻ </p>
+
+                                <div class="social-icons">
+                                    <a href="#" class="social-icon" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
+                                    <a href="#" class="social-icon" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                                    <a href="#" class="social-icon" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
+                                    <a href="#" class="social-icon" title="Youtube" target="_blank"><i class="icon-youtube"></i></a>
+                                    <a href="#" class="social-icon" title="Pinterest" target="_blank"><i class="icon-pinterest"></i></a>
+                                </div><!-- End .soial-icons -->
+                            </div><!-- End .widget about-widget -->
+                        </div><!-- End .col-sm-6 col-lg-3 -->
+
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="widget">
+                                <h4 class="widget-title">Liên Kết Hữu Ích</h4><!-- End .widget-title -->
+
+                                <ul class="widget-list">
+                                    <li><a href="about.html">Thông tin QaTu</a></li>
+                                    <li><a href="#">Cách Mua Sắm Trên QaTu</a></li>
+                                    <li><a href="#">Câu Hỏi Thường Gặp</a></li>
+                                    <li><a href="contact.html">Liên Hệ Chúng Tôi</a></li>
+                                    <li><a href="login.html">Đăng Nhập</a></li>
+                                </ul><!-- End .widget-list -->
+                            </div><!-- End .widget -->
+                        </div><!-- End .col-sm-6 col-lg-3 -->
+
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="widget">
+                                <h4 class="widget-title">Dịch Vụ Khách Hàng</h4><!-- End .widget-title -->
+
+                                <ul class="widget-list">
+                                    <li><a href="#">Phương Thức Thanh Toán</a></li>
+                                    <li><a href="#">Hoàn Tiền</a></li>
+                                    <li><a href="#">Trả Hàng</a></li>
+                                    <li><a href="#">Giao Hàng</a></li>
+                                    <li><a href="#">Các Điều Khoản Và Điều Kiện</a></li>
+                                    <li><a href="#">Chính Sách Bảo Mật</a></li>
+                                </ul><!-- End .widget-list -->
+                            </div><!-- End .widget -->
+                        </div><!-- End .col-sm-6 col-lg-3 -->
+
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="widget">
+                                <h4 class="widget-title">Tài Khoản Của Tôi</h4><!-- End .widget-title -->
+
+                                <ul class="widget-list">
+                                    <li><a href="#">Đăng Nhập</a></li>
+                                    <li><a href="cart.html">Xem Giỏ Hàng</a></li>
+                                    <li><a href="#">Sản Phẩm Yêu Thích</a></li>
+                                    <li><a href="#">Theo Dõi Đơn Hàng</a></li>
+                                    <li><a href="#">Trợ Giúp</a></li>
+                                </ul><!-- End .widget-list -->
+                            </div><!-- End .widget -->
+                        </div><!-- End .col-sm-6 col-lg-3 -->
+                    </div><!-- End .row -->
+                </div><!-- End .container -->
+            </div><!-- End .footer-middle -->
+
+            <div class="footer-bottom">
+                <div class="container">
+                    <p class="footer-copyright">Bản quyền © 2023 Cửa hàng QATU. Đã đăng ký Bản quyền.</p><!-- End .footer-copyright -->
+                    <figure class="footer-payments">
+                        <img src="~/Content/assets/images/payments.png" alt="Payment methods" width="272" height="20">
+                    </figure><!-- End .footer-payments -->
+                </div><!-- End .container -->
+            </div><!-- End .footer-bottom -->
+        </footer><!-- End .footer -->
+
+
+        <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
+
+        <div class="mobile-menu-container">
+            <div class="mobile-menu-wrapper">
+                <span class="mobile-menu-close"><i class="icon-close"></i></span>
+
+                <form action="#" method="get" class="mobile-search">
+                    <label for="mobile-search" class="sr-only">Search</label>
+                    <input type="search" class="form-control" name="keyword" id="mobile-search" value="Nhập vào từ khóa..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">>
+
+                    <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+                </form>
+
+                <nav class="mobile-nav">
+                    <ul class="mobile-menu">
+                        <li class="active">
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                            <a href="/Product/" class="">Sản Phẩm</a>
+                        </li>
+                        <li>
+                            <a href="/Home/Quiz" class="">Gợi Ý Sản Phẩm</a>
+                        </li>
+                        <li>
+                            <a href="/Slide/" class="">Diễn Đàng</a>
+                        </li>
+                    </ul>
+                </nav><!-- End .mobile-nav -->
+
+                <div class="social-icons">
+                    <a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
+                    <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
+                    <a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
+                    <a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
+                </div><!-- End .social-icons -->
+            </div><!-- End .mobile-menu-wrapper -->
+        </div><!-- End .mobile-menu-container -->
+        <!-- Chatbox -->
+        <script src="~/Scripts/ChatboxUser.js"></script>
+
+
+        <!-- Plugins JS File (tempalte 2) -->
+        <script src="~/Content/assets/js/jquery.min.js"></script>
+        <script src="~/Content/assets/js/bootstrap.bundle.min.js"></script>
+        <script src="~/Content/ssets/js/jquery.hoverIntent.min.js"></script>
+        <script src="~/Content/assets/js/jquery.waypoints.min.js"></script>
+        <script src="~/Content/assets/js/superfish.min.js"></script>
+        <script src="~/Content/assets/js/owl.carousel.min.js"></script>
+        <script src="~/Content/assets/js/bootstrap-input-spinner.js"></script>
+        <script src="~/Content/assets/js/jquery.elevateZoom.min.js"></script>
+        <script src="~/Content/assets/js/bootstrap-input-spinner.js"></script>
+        <script src="~/Content/assets/js/jquery.magnific-popup.min.js"></script>
+        <!-- Main JS File  (tempalte 2)-->
+        <script src="~/Content/assets/js/main.js"></script>
+
+
+
+
+
+
+        <!-- Js Plugins -->
+        <link href="~/Content/Webapp/css/chatbox.css" rel="stylesheet" />
+        <script src="~/Content/js/chatbox.js"></script>
+        <script src="~/Content/Webapp/js/jquery-3.3.1.min.js"></script>
+        @*<script src="~/Content/Webapp/js/bootstrap.min.js"></script>*@
+        <script src="~/Content/Webapp/js/jquery.magnific-popup.min.js"></script>
+        <script src="~/Content/Webapp/js/jquery.slicknav.js"></script>
+        <script src="~/Content/Webapp/js/jquery.nice-select.min.js"></script>
+        <script src="~/Content/Webapp/js/owl.carousel.min.js"></script>
+
+        <script src="~/Content/Webapp/js/mixitup.min.js"></script>
+        <script src="~/Content/Webapp/js/main.js"></script>
+        <script src="~/Content/js/notify.min.js"></script>
+        <script src="~/Scripts/jquery.signalR-2.4.2.min.js"></script>
+        <script src="~/signalr/hubs" type="text/javascript"></script>
+
+    </body>
+</html>

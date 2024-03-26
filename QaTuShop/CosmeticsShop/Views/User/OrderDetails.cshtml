@@ -1,0 +1,109 @@
+﻿@model List<CosmeticsShop.Models.OrderDetail>
+
+@{
+    ViewBag.Title = "Chi tiết";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<section class="py-4 my-4" style="padding-bottom: 4.5rem !important;">
+    <div class="container">
+        <div class="tab-content p-4 p-md-5">
+            <h3 class="mb-4">Chi Tiết Đơn Hàng </h3>
+            <div>
+                <nav class="breadcrumb-nav mb-2" style="background-color: transparent;">
+                    <div class="container">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Trang Chủ</a></li>
+                            <li class="breadcrumb-item"><a href="/User/Infor">Tài Khoản</a></li>
+                            <li class="breadcrumb-item"><a href="/User/CheckoutOrder">Đơn Hàng</a></li>
+                        </ol>
+                    </div><!-- End .container -->
+                </nav><!-- End .breadcrumb-nav -->
+                <div class="tab-pane active">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Tên Người Nhận</th>
+                                <th scope="col">Số Điện Thoại</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Địa Chỉ</th>
+                                <th scope="col">Tên sản phẩm</th>
+                                <th scope="col">Hình ảnh</th>
+                                <th scope="col">Đơn giá</th>
+                                <th scope="col">Số lượng</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.Count > 0)
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Order.ShipName</td>
+                                        <td>@item.Order.ShipMobile</td>
+                                        <td>@item.Order.ShipEmail</td>
+                                        <td>@item.Order.ShipAddress</td>
+                                        <td>@item.ProductName</td>
+                                        <td><img src="~/Content/images/@item.ProductImage" alt="Alternate Text" style="width:50px;height:80px" /></td>
+                                        <td>@item.ProductPrice</td>
+                                        <td>@item.Quantity</td>
+
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>
+                                        Không có sản phẩm nào...
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--content-->
+<!--<div class="products">
+        <div class="container" >-->
+@*<h2>Chi tiết đơn đặt hàng: @Request.Params["ID"]</h2>*@
+<!--<div class="col-md-9">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tên sản phẩm</th>
+                        <th>Hình ảnh</th>
+                        <th>Đơn giá</th>
+                        <th>Số lượng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Count > 0)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.ProductName</td>
+                                <td><img src="~/Content/images/@item.ProductImage" alt="Alternate Text" style="width:50px;height:80px" /></td>
+                                <td>@item.ProductPrice</td>
+                                <td>@item.Quantity</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>
+                                Không có sản phẩm nào...
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>-->

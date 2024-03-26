@@ -1,0 +1,75 @@
+﻿@model CosmeticsShop.Models.Slide
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+
+<div class="page-wrapper">
+
+    <main class="main">
+        <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Trang Chủ</a></li>
+                    <li class="breadcrumb-item"><a href="#">Diễn Đàn</a></li>
+                    
+                </ol>
+            </div><!-- End .container -->
+        </nav><!-- End .breadcrumb-nav -->
+
+        <div class="page-content">
+            <div class="container">
+                <figure class="entry-media">
+                    <div class="owl-carousel owl-simple owl-light owl-nav-inside" data-toggle="owl">
+                        <img src="~/Content/images/@Model.Image" alt="image desc">
+                        
+                    </div><!-- End .owl-carousel -->
+                </figure><!-- End .entry-media -->
+                <div class="row">
+                    <div class="">
+                        <article class="entry single-entry">
+                            <div class="entry-body">
+
+
+                                <h2 class="entry-title entry-title-big">
+                                    @Model.Name
+                                </h2><!-- End .entry-title -->
+
+
+
+                                <div class="entry-content editor-content">
+                                    @Html.Raw(Model.Description)
+                                </div><!-- End .entry-content -->
+
+
+                            </div><!-- End .entry-body -->
+
+
+                        </article><!-- End .entry -->
+
+
+                    </div><!-- End .col-lg-9 -->
+                    <div class="entry-meta">
+                        <span class="entry-author">
+                            Tác Giả <a href="#">@Model.User.Name</a>
+                        </span>
+                        <span class="meta-separator">|</span>
+                        <a href="#">@Model.CreatedDate</a>
+                        <span class="meta-separator">|</span>
+                        <a href="#">2 Comments</a>
+                    </div><!-- End .entry-meta -->
+
+                </div><!-- End .row -->
+            </div><!-- End .container -->
+        </div><!-- End .page-content -->
+    </main><!-- End .main -->
+
+
+</div><!-- End .page-wrapper -->
+<button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
+
+
+

@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "Suggest";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+
+    List<CosmeticsShop.Models.Category> categories = ViewBag.ListCategory as List<CosmeticsShop.Models.Category>;
+    List<CosmeticsShop.Models.Product> products = ViewBag.ListProduct as List<CosmeticsShop.Models.Product>;
+}
+<script>
+    $(document).ready(function () {
+        $(".item_add").on('click', function () {
+            event.preventDefault();
+            var ID = $(this).data("id");
+            $.ajax({
+                url: '/Cart/AddItem',
+                data: {
+                    ProductID: ID
+                },
+                type: 'POST',
+                dataType: 'json',
+                success: function (response) {
+                    if (response.status == true) {
+                        $.notify("Thành công!", "success");
+                        $.ajax({
+                            url: '/Cart/GetTotalCart',
+                            type: 'GET',
+                            dataType: 'json',
+                            success: function (response) {
+                                $(".simpleCart_total").html("$" + response.TotalPrice + "(" + response.TotalQuantity + ")")
+                            },
+                        });
+                    } else {
+                        $.notify("Số lượng không đủ!", "error");
+                    }
+                },
+            });
+        })
+    });
+</script>
+
+<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+    <div class="container">
+        <h1 class="page-title">Gợi Ý Sản Phẩm</h1>
+    </div><!-- End .container -->
+</div><!-- End .page-header -->
+<nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Trang Chủ</a></li>
+            <li class="breadcrumb-item"><a href="">Gợi Ý Sản Phẩm</a></li>
+        </ol>
+    </div><!-- End .container -->
+</nav><!-- End .breadcrumb-nav -->
+<!--content-->
+
+<div class="products">
+    <div class="container">
+        <!--categories-->       
+        <!-- end categories-->
+        <div class="alert alert-light border-dark w-50">
+            <h4 class="alert-heading">Gợi ý một số sản phẩm phù hợp với bạn</h4>
+        </div>
+        <div class="alert alert-primary w-25">
+            <i class="bi bi-star"></i>@Request.Params["message"]
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                @if (products.Count > 0)
+                {
+                    int count = 1;
+                    for (int i = count - 1; i < products.Count; i++)
+                    {
+                        <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                            <div class="product">
+                                <figure class="product-media">
+                                    @*<span class="product-label label-new">New</span>*@
+                                    <a href="/Product/Details/@products[i].ID">
+                                        <img src="~/Content/images/@products[i].Image1" alt="Product image" class="product-image">
+                                    </a>
+                                    <div class="product-action action-icon-top">
+                                        <a href="#" class="btn-product btn-cart item_add" data-id="@products[i].ID"><span>Thêm Vào Giỏ Hàng</span></a>
+                                    </div><!-- End .product-action -->
+                                </figure><!-- End .product-media -->
+                                <div class="product-body">
+                                    <h3 class="product-title"><a href="/Product/Details/@products[i].ID">@products[i].Name (Kho: @products[i].Quantity)</a></h3><!-- End .product-title -->
+                                    <div class="product-price">
+                                        @products[i].Price.Value.ToString("#,##")₫
+                                    </div><!-- End .product-price -->
+
+                                </div><!-- End .product-body -->
+                            </div><!-- End .product -->
+                        </div><!-- End .col-sm-6 col-lg-4 col-xl-3 -->
+                    }
+                }
+                else
+                {
+                    <h3>Không có sản phẩm nào...</h3>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--//content-->

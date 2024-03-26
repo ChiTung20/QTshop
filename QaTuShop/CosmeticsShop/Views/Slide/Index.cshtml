@@ -1,0 +1,66 @@
+﻿@model IEnumerable<CosmeticsShop.Models.Slide>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+
+
+
+<main class="main">
+    <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+        <div class="container">
+            <h1 class="page-title">Tất Cả Tin Tức</h1>
+        </div><!-- End .container -->
+    </div><!-- End .page-header -->
+    <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Trang Chủ</a></li>
+                <li class="breadcrumb-item"><a href="#">Diễn Đàng</a></li>
+            </ol>
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
+
+    <div class="page-content">
+        <div class="container">
+
+
+            <div class="entry-container max-col-2" data-layout="fitRows">
+                @{
+                    foreach (var slide in Model)
+                    {
+                        <div class="entry-item lifestyle shopping col-sm-6">
+                                            <article class="entry entry-grid text-center">
+                                                <figure class="entry-media">
+                                                    <a href="/Slide/Details/@slide.ID">
+                                                        <img src="~/Content/images/@slide.Image" alt="image desc">
+                                                    </a>
+                                                </figure><!-- End .entry-media -->
+
+                                                <h2 class="entry-title">
+                                                    <a href="/Slide/Details/@slide.ID"> @slide.Name</a>
+                                                </h2><!-- End .entry-title -->
+                                                <div class="entry-body">
+                                                    <div class="entry-meta">
+                                                        <span class="entry-author">
+                                                            Tác Giả: <a href="/Slide/Details/@slide.ID">@slide.User.Name</a>
+                                                        </span>
+                                                        <span class="meta-separator">|</span>
+                                                        <a href="#">@slide.CreatedDate</a>
+                                                      
+                                                    </div><!-- End .entry-meta -->
+
+                                                    
+                                                </div><!-- End .entry-body -->
+                                            </article><!-- End .entry -->
+                        </div><!-- End .entry-item -->
+                    }
+                }
+            </div><!-- End .entry-container -->
+           
+        </div><!-- End .container -->
+    </div><!-- End .page-content -->
+</main><!-- End .main -->
+
